@@ -1,0 +1,35 @@
+// Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+
+ #include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int n=nums.size();
+        int l=0,r=0,zeroes=0,maxLen=0;
+        while(r<n){
+            if(nums[r]==0) zeroes++;
+            while(zeroes>k){
+                if(nums[l]==0) zeroes--;
+                l++;
+            }
+            if(zeroes<=k){
+                int len=r-l+1;
+                maxLen=max(len,maxLen);
+            }
+            r++;
+        }
+        return maxLen;
+    }
+};
+
+int main() {
+    int n,k;
+    cin >> n >> k;
+    vector<int> nums(n);
+    for(int i=0;i<n;i++) cin >> nums[i];
+    Solution obj;
+    cout << obj.longestOnes(nums, k);
+    return 0;
+}
