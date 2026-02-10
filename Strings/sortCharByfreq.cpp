@@ -4,42 +4,25 @@ using namespace std;
 class Solution {
 public:
     string frequencySort(string s) {
-        unordered_map<char,int> arr;
-        for (auto el : s) {
-            arr[el]++; // count frequency
+        vector<int> freq(125, 0);
+        for(char ch : s) {
+            freq[ch]++;
         }
 
-        vector<char> chars;
-        for (auto ls : arr) {
-            chars.push_back(ls.first); // store unique characters
-        }
+        auto cmp = [&](char a, char b) {
+            if(freq[a] == freq[b]) return a < b;
+            return freq[a] > freq[b];
+        };
 
-        // custom sorting
-        sort(chars.begin(), chars.end(), [&](char a, char b) {
-            if (arr[a] == arr[b]) {
-                return a < b;   // alphabetic order if same frequency
-            }
-            return arr[a] > arr[b]; // higher frequency first
-        });
-
-        string result = "";
-        for (char c : chars) {
-            result.append(arr[c], c); // repeat char arr[c] times
-        }
-
-        return result;
+        sort(s.begin(), s.end(), cmp);
+        return s;
     }
 };
 
 int main() {
-    Solution sol;
     string s;
-
-    cout << "Enter a string: ";
     cin >> s;
-
-    string sorted = sol.frequencySort(s);
-    cout << "Output: " << sorted << endl;
-
+    Solution obj;
+    cout << obj.frequencySort(s);
     return 0;
 }
