@@ -10,7 +10,6 @@ int calculatePass(vector<vector<int>>mat){
         int k=0;
         for(int i=0;i<n;i++){
             avg+=mat[i][j];
-            k=i;
         }
         avg/=n;
        for(int i=0;i<n;i++){
