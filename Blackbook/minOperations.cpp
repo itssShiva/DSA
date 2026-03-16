@@ -11,7 +11,7 @@ int findOp(int p,int q,int r){
         step++;
         if(temp[0]==temp[1]&&temp[1]==temp[2]) return step;
         sort(temp.begin(),temp.end());
-        if(temp[0]==temp[1]&&temp[1]+1==temp[2]||temp[1]==temp[2]&&temp[0]+1==temp[1]) return -1;el
+        if(temp[0]==temp[1]&&temp[1]+1==temp[2]||temp[1]==temp[2]&&temp[0]+1==temp[1]) return -1;
     }
 }
 
