@@ -18,7 +18,7 @@ class Solution {
         for(int i = 0; i < jobs.size(); i++){
             int k = jobs[i].second;
             for(int j = k; j >= 1; j--){
-                if(hash[j] == -1){
+                if(hash[j] == -1){  
                     hash[j] = i;
                     cnt++;
                     totalProfit += jobs[i].first;
