@@ -2,6 +2,7 @@
 using namespace std;
 
     int printF(int i,vector<int>&ds,int s,int arr[],int k,int n){
+        if(s>k) return 0;
         if(i==n){
             if(s==k){
                 return 1;
