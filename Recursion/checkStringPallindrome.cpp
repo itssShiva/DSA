@@ -8,7 +8,7 @@ string reverseString(int i,string s){
     return reverseString(i+1,s);
 }
 int main(){
-    string s="hum";
+    string s="madam";
    string result= reverseString(0,s);
    cout<<result;
 }
