@@ -16,6 +16,7 @@ using namespace std;
         s-=arr[i];
         if(printF(i+1,ds,s,arr,k,n)==true) return true;
         return false;
+    
     }
 
 
